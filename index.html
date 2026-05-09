@@ -335,7 +335,7 @@
       height: 100%;
     }
 
-    .point, .uni-point {
+    .point {
       position: absolute;
     }
 
@@ -349,10 +349,6 @@
       position: relative;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
       animation: pulse 1.5s infinite;
-    }
-
-    .uni-point .pin {
-      background: green;
     }
 
     @keyframes pulse {
@@ -396,9 +392,7 @@
     }
 
     .point:hover .popup,
-    .point.active .popup,
-    .uni-point:hover .popup,
-    .uni-point.active .popup {
+    .point.active .popup {
       opacity: 1;
       pointer-events: auto;
     }
@@ -531,7 +525,7 @@
             </div>
           </div>
 
-          <div class="uni-point" style="top:74%; left:58%;">
+          <div class="point" style="top:74%; left:58%;">
             <button class="pin"></button>
 
             <div class="popup">
@@ -552,7 +546,7 @@
   </div>
 
   <script>
-    const points = document.querySelectorAll('.point, .uni-point');
+    const points = document.querySelectorAll('.point');
 
     points.forEach(point => {
       point.addEventListener('click', () => {
