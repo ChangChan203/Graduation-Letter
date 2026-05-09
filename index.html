@@ -369,7 +369,7 @@
 
     .popup {
       position: absolute;
-      top: 50%;
+      top: 10%;
       right: calc(100% + 10px);
       transform: translateY(-50%);
       width: 160px;
@@ -552,10 +552,15 @@
   </div>
 
   <script>
-    const points = document.querySelectorAll('.point');
+    const points = document.querySelectorAll('.point, .uni-point');
 
     points.forEach(point => {
       point.addEventListener('click', () => {
+        points.forEach(otherPoint => {
+          if (otherPoint !== point) {
+            otherPoint.classList.remove('active');
+          }
+        });
         point.classList.toggle('active');
       });
     });
