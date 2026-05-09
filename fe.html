@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduation Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=BBH Bogle' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'MyFont';
+      src: url('./fonts/OldEnglishTextMt.ttf') format('truetype');
+    }
+
+    body {
+      background: #e9e4d9;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      color: black;
+      min-height: 100vh;
+    }
+
+    .newspaper {
+      width: 100%;
+      max-width: 430px;
+      background: #f4f1ea;
+      border: 1px solid black;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px;
+    }
+
+    .grad-date {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      font-size: 10px;
+    }
+
+    .grad-date .grad-line {
+      flex: 2;
+      height: 1px;
+      background: black;
+    }
+
+    .grad-date-text {
+      flex: 1;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+
+    .spec-ed {
+      flex: 1;
+      font-size: 7px;
+      text-align: center;
+      text-transform: uppercase;
+      padding-top: 5px;
+    }
+
+    .grad-post {
+      flex: 4;
+      font-size: 30px;
+      text-align: center;
+      font-family: 'MyFont';
+    }
+
+    .breaking {
+      border-top: 4px solid black;
+      border-bottom: 4px solid black;
+      padding: 2px 0;
+    }
+
+    .breaking-in {
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+      padding: 10px 0;
+      font-family: 'BBH Bogle', serif;
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 0.9;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 3px 3px 3px #ababab;
+    }
+
+    .grad-post {
+        font-family: 'MyFont';
+    }
+
+    .invite {
+      position: relative;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .did-it::before {
+      content: "SHE DID IT!";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: 8px;
+      color: rgba(0, 0, 0, 0.075);
+      text-transform: uppercase;
+      z-index: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      font-family: 'BBH Bogle', serif;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .invite > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .my-name {
+      font-family: "Allura", serif;
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    .is-grad {
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 0.9;
+      font-family: "BBH Bogle", serif;
+    }
+
+    .invite-footer {
+      background: black;
+      color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .invite-footer p {
+      margin-bottom: 8px;
+    }
+
+    .invite-footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .you-invi {
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .want-to {
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .main-image {
+      padding: 0 20px 20px 20px;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border: 1px solid black;
+      filter: grayscale(100%);
+    }
+
+    .event-box {
+      margin: 0 20px 20px;
+      border: 1px solid black;
+    }
+
+    .event-title {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .event-content {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .event-content h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .event-content p {
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin: 0 20px 20px;
+      border-left: 4px solid black;
+    }
+
+    .contact-left {
+      flex: 2;
+      align-items: center;
+      padding-left: 12px;
+    }
+
+    .contact-title {
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+      
+    .contact-left h5 {
+      font-size: 14px;
+      font-style: italic;
+      padding-top: 6px;
+    }
+
+    .contact-left p {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .contact-right {
+      flex: 1;
+    }
+
+    .contact-right img {
+      width: 100%;
+      height: auto;
+    }
+
+    .map-section {
+      margin: 0 20px 30px;
+      border: 1px solid black;
+    }
+
+    .map-title {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .map-wrapper {
+      padding: 16px;
+    }
+
+    .map-note {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .map {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .park-note {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      font-style: italic;
+      padding-top: 16px;
+    }
+
+    .map img.bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .road-horizontal,
+    .road-vertical {
+      position: absolute;
+      background: rgba(255,255,255,0.8);
+    }
+
+    .road-horizontal {
+      width: 100%;
+      height: 8px;
+    }
+
+    .road-vertical {
+      width: 8px;
+      height: 100%;
+    }
+
+    .point, .uni-point {
+      position: absolute;
+    }
+
+    .pin {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background: red;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      animation: pulse 1.5s infinite;
+    }
+
+    .uni-point .pin {
+      background: green;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .popup {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 10px);
+      transform: translateY(-50%);
+      width: 160px;
+      background: #f4f1ea;
+      padding: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      z-index: 20;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .popup img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .popup p {
+      text-align: center;
+      margin-top: 2px;
+      letter-spacing: 1px;
+      font-size: 10px;
+    }
+
+    .point:hover .popup,
+    .point.active .popup,
+    .uni-point:hover .popup,
+    .uni-point.active .popup {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .footer {
+      border-top: 1px solid black;
+      text-align: center;
+      padding: 18px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="newspaper">
+
+    <div class="header">
+        <div class="grad-date">
+          <span class="grad-line"></span>
+          <span class="grad-date-text">23 May 2026</span>
+          <span class="grad-line"></span>
+        </div>
+      <div class="top-bar">
+        <span class="spec-ed">Special Edition</span>
+        <span class="grad-post">Graduation Post</span>
+        <span class="spec-ed">Special Edition</span>
+      </div>
+
+      <div class="breaking">
+        <div class="breaking-in">BREAKING NEWS!!</div>
+      </div>
+
+      <div class="invite">
+        <div class="did-it">
+          <p class="my-name">Trang Thu Pham</p>
+          <p class="is-grad">Is Graduating</p>
+        </div>
+        <div class="invite-footer">
+          <p class="you-invi">You're Invited</p>
+          <p class="want-to">She wants to celebrate with you</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-image">
+      <img src="img/avt.png" alt="graduate">
+    </div>
+
+    <div class="event-box">
+      <div class="event-title">
+        The Graduation Ceremony
+      </div>
+
+      <div class="event-content">
+        <h4>08:00 AM - 11:30 AM</h4>
+        <h3>Saturday, 23.05.2026</h3>
+        <p>
+          POSTS AND TELECOMMUNICATIONS<br>
+          INSTITUTE OF TECHNOLOGY<br>
+          96 Tran Phu, Ha Dong, Ha Noi
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-left">
+          <div class="contact-title">CONTACT INFORMATION</div>
+          <h5>Trang's Phone</h5>
+          <p>0969506944 - 0876104904</p>
+          <h5>Contact to Thảo if no answer</h5>
+          <p>0325841150</p>
+          <h5>Contact to Thắm if no answer</h5>
+          <p>0832015065</p>
+        </div>
+        <div class="contact-right">
+          <img src="img/hat.png" alt="Graduation Hat">
+        </div>
+    </div>
+
+    <div class="map-section">
+      <div class="map-title">
+        PTIT AND PARKING LOT MAP
+      </div>
+
+      <div class="map-wrapper">
+        <div class="map-note">
+          PTIT Location
+        </div>
+        
+        <div class="map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d732.1796069973996!2d105.78723666812401!3d20.98072193178378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1778265585969!5m2!1svi!2s" 
+            style="border:0; height: 100%; width: 100%;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+
+        <div class="park-note">
+            Tap on the pins to see the location image
+        </div>
+
+        <div class="map">
+            <img
+                class="bg"
+                src="img/parking.png"
+                alt="map"
+            >
+          <div class="point" style="top:54%; left:58%;">
+            <button class="pin"></button>
+
+            <div class="popup">
+              <img src="img/uni-parking.jpg" alt="PTIT's Gate">
+              <p>PTIT's Parking Lot</p>
+            </div>
+          </div>
+
+          <div class="point" style="top:23%; left:58%;">
+            <button class="pin"></button>
+
+            <div class="popup">
+              <img src="img/top-market.jpg" alt="Top Market">
+              <p>Top Market's Parking Lot</p>
+            </div>
+          </div>
+
+          <div class="uni-point" style="top:74%; left:58%;">
+            <button class="pin"></button>
+
+            <div class="popup">
+              <img src="img/uni-gate.jpg" alt="PTIT's Gate">
+              <p>PTIT's Gate</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+      Congrats • She Did It • Congrats
+    </div>
+
+  </div>
+
+  <script>
+    const points = document.querySelectorAll('.point');
+
+    points.forEach(point => {
+      point.addEventListener('click', () => {
+        point.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
