@@ -1,2 +1,0 @@
-# Graduation-Letter
-Graduation Letter
